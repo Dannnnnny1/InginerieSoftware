@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.obiscr.chatgpt.settings.EasyCodeState">
+    <option name="projectFiles" value="$PROJECT_DIR$/src/main/java/com/parking/parkinglot/ejb/CarsBean.java;C:/Users/Daniel/IdeaProjects/ParkingLot5/src/main/java/com/parking/parkinglot/entities/Car.java;C:/Users/Daniel/IdeaProjects/ParkingLot5/src/main/java/com/parking/parkinglot/entities/User.java;C:/Users/Daniel/IdeaProjects/ParkingLot5/src/main/java/com/parking/parkinglot5/entities/Car.java;C:/Users/Daniel/IdeaProjects/ParkingLot5/src/main/java/com/parking/parkinglot5/Cars.java;C:/Users/Daniel/IdeaProjects/ParkingLot5/src/main/java/com/parking/parkinglot5/HelloServlet.java;C:/Users/Daniel/IdeaProjects/ParkingLot5/src/main/resources/META-INF/beans.xml;C:/Users/Daniel/IdeaProjects/ParkingLot5/src/main/resources/META-INF/persistence.xml;C:/Users/Daniel/IdeaProjects/ParkingLot5/src/main/webapp/WEB-INF/web.xml" />
+  </component>
+</project>
