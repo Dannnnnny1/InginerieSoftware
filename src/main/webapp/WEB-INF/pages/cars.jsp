@@ -4,6 +4,7 @@
 
 <t:pageTemplate pageTitle="Cars">
     <h1>Cars</h1>
+    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/AddCar">Add Car</a>
     
     <div class="container text-center">
        <c:forEach var="car" items="${cars}">
