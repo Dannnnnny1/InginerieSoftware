@@ -6,18 +6,30 @@
     <h1>Users</h1>
     <form method="post" action="${pageContext.request.contextPath}/Users">
         <c:if test="${pageContext.request.isUserInRole('WRITE_USERS')}">
-        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/AddUser">Add User</a>
+            <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/AddUser">Add User</a>
         </c:if>
-    <div class="container text-center">
-        <c:forEach var="user" items="${users}">
-            <div class="row">
-                <div class="col">
-                        ${user.username}
+        <div class="container text-center">
+            <c:forEach var="user" items="${users}">
+                <div class="row">
+                    <div class="col">
+                        <input type="checkbox" name="user_ids" value="${user.id}">
+                    </div>
+                    <div class="col">
+                            ${user.username}
+                    </div>
+                    <div class="col">
+                            ${user.email}
+                    </div>
                 </div>
-                <div class="col">
-                        ${user.email}
-                </div>
-            </div>
+            </c:forEach>
+        </div>
+        <button class="btn btn-primary btn-lg" type="submit">Invoice</button>
+    </form>
+    <c:if test="${not empty invoices}">
+        <h2>Invoices</h2>
+        <c:forEach var="invoice" items="${invoices}" varStatus="status">
+            ${status.index + 1}. ${invoice}
+            <br/>
         </c:forEach>
-    </div>
+    </c:if>
 </t:pageTemplate>

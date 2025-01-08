@@ -18,9 +18,7 @@ import java.util.logging.Logger;
 @Stateless
 public class UserBean {
     private static final Logger LOG = Logger.getLogger(UserBean.class.getName());
-    public void createUser(String username, String email, String password, List<String> userGroups) {
-        // Implementation for creating a user
-    }
+
 
     @PersistenceContext
     EntityManager entityManager;
@@ -71,5 +69,11 @@ public class UserBean {
             userDtos.add(userDto);
         }
         return userDtos;
+    }
+    public Collection<String> findUserNamesByIds(Collection<Long> userIds){
+        List<String> usernames=entityManager.createQuery("SELECT u.username FROM User u WHERE u.id IN :userIds",String.class)
+                .setParameter("userIds",userIds)
+                .getResultList();
+        return usernames;
     }
 }
