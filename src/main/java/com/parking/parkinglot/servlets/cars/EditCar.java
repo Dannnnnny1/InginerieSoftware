@@ -1,4 +1,4 @@
-package com.parking.parkinglot.servlets;
+package com.parking.parkinglot.servlets.cars;
 
 import com.parking.parkinglot.common.CarDto;
 import com.parking.parkinglot.common.UserDto;
@@ -12,8 +12,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@ServletSecurity(value = @HttpConstraint(rolesAllowed =
-        {"WRITE_CARS"}))
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"WRITE_CARS"}))
 @WebServlet(name = "EditCar", value = "/EditCar")
 public class EditCar extends HttpServlet {
     @Inject
@@ -23,8 +22,7 @@ public class EditCar extends HttpServlet {
     CarsBean carsBean;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse
-            response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<UserDto> users = userBean.findAllUsers();
         request.setAttribute("users", users);
 
@@ -32,12 +30,11 @@ public class EditCar extends HttpServlet {
         CarDto car = carsBean.findById(carId);
         request.setAttribute("car", car);
 
-        request.getRequestDispatcher("/WEB-INF/pages/editCar.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/cars/editCar.jsp").forward(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse
-            response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String licensePlate = request.getParameter("license_plate");
         String parkingSpot = request.getParameter("parking_spot");
         Long userId = Long.parseLong(request.getParameter("owner_id"));

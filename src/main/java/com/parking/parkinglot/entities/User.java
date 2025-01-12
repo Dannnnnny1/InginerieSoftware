@@ -8,40 +8,21 @@ import java.util.Collection;
 @Entity
 @Table(name = "user")
 public class User {
-    @Id
-    @GeneratedValue
     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Column(name = "username")
     private String username;
 
+    private String email;
+
+    private String password;
+
+    @Column(name = "username")
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public Long getId() {
-        return id;
-    }
-    private String email;
-    private String password;
-
-    @OneToMany(mappedBy = "owner", orphanRemoval = true)
-    private Collection<Car> cars = new ArrayList<>();
-
-    public Collection<Car> getCars() {
-        return cars;
-    }
-
-    public void setCars(Collection<Car> cars) {
-        this.cars = cars;
     }
 
     public String getEmail() {
@@ -58,5 +39,26 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    private Collection<Car> cars = new ArrayList<>();
+
+    @OneToMany(mappedBy = "owner", orphanRemoval = true)
+    public Collection<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(Collection<Car> cars) {
+        this.cars = cars;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Id
+    @GeneratedValue
+    public Long getId() {
+        return id;
     }
 }
