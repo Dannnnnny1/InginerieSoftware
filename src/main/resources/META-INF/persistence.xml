@@ -8,7 +8,6 @@
         <properties>
 
             <property name="jakarta.persistence.schema-generation.database.action" value="create-or-extend-tables" />
-            <property name="hibernate.hbm2ddl.auto" value="validate" />
 
 
         </properties>
